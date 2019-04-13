@@ -30,10 +30,11 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    if (num%3!==0 && num%5!==0) {return num}
+    if (num%3===0 && num%5!==0) {return 'Fizz'}
+    if (num%5===0 && num%3!==0) {return 'Buzz'}  
+    if (num%3==0 && num%5==0) {return 'FizzBuzz'}
 }
-
-
 /**
  * Returns the factorial of the specified integer n.
  *
@@ -46,7 +47,10 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    if (n === 1 ) { return n}
+    while (n > 0) {
+        return n*getFactorial(n-1)
+    }
 }
 
 
@@ -63,7 +67,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    var ans = 0
+    for (var i=n1; i<=n2; i++) {
+        ans += i
+    }
+    return ans
 }
 
 
@@ -82,7 +90,7 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    return (a+b >c && a+c>b && b+c>a)
 }
 
 
@@ -119,7 +127,30 @@ function isTriangle(a,b,c) {
  *  
  */
 function doRectanglesOverlap(rect1, rect2) {
-    throw new Error('Not implemented');
+    var x1start = rect1['left'];
+    var x1finish = rect1['left'] + rect1['width'] 
+    var y1start = rect1['top'];
+    var y1finish = rect1['top'] + rect1['height'];
+    var x2start = rect2['left'];
+    var x2finish = rect2['left'] + rect2['width'] 
+    var y2start = rect2['top'];
+    var y2finish = rect2['top'] + rect2['height'];
+    var ans = false;
+    console.log('x1start = ' + x1start)
+    console.log('x1finish = ' + x1finish)
+    console.log('y1start = ' + y1start)
+    console.log('y1finish = ' + y1finish)
+    console.log('x2start = ' + x2start)
+    console.log('x2finish = ' + x2finish)
+    console.log('y2start = ' + y2start)
+    console.log('y2finish = ' + y2finish)
+    if (x2start >= x1start && x2start <= x1finish && y2start >= y1start && y2start <= y1finish ) { ans = true};
+    if (x2finish >= x1start && x2finish <= x1finish && y2start >= y1start && y2start <= y1finish ) { ans = true};   
+    if (x2finish >= x1start && x2finish <= x1finish && y2finish >= y1start && y2finish <= y1finish ) { ans = true};
+    if (x2start >= x1start && x2start <= x1finish && y2finish >= y1start && y2finish <= y1finish ) { ans = true};    
+    if (x2start >= x1start && x2finish <= x1finish && y2start >= y1start && y2finish<= y1finish) {ans = true};
+    if (x2start <= x1start && x2finish >= x1finish && y2start <= y1start && y2finish >= y1finish) {ans = true};
+    return ans;
 }
 
 

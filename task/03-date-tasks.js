@@ -100,8 +100,6 @@ function timeSpanToString(startDate, endDate) {
    else { str += '0' + s + '.' }
    ost = ost%sec;
 
-
-   console.log(parseInt(ost))
    if (ost < 10)
    {str += '00' + ost; }
    else if (ost >= 10 && ost < 100 ) { str += '0' + ost}
@@ -124,7 +122,11 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+    var hours = date.getUTCHours()%12;
+    var minutes = date.getUTCMinutes();
+   var dif = 0.5*(60*hours - 11*minutes)
+   if (dif > 180) { dif = 360 - dif}
+   return Math.abs(dif * Math.PI / 180)
 }
 
 

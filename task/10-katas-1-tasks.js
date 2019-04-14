@@ -16,13 +16,10 @@
  *     { abbreviation : 'NbW',   azimuth : 348.75 }
  *  ]
  */
-function Point(abbr, azimuth) {
-    this.abbreviation = abbr;
-    this.azimuth = azimuth;
-}
-
 function createCompassPoints() {
     throw new Error('Not implemented');
+    var sides = ['N','E','S','W'];  // use array of cardinal directions only!
+}
 
 
 /**

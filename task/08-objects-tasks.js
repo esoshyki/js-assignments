@@ -119,28 +119,23 @@ const cssSelectorBuilder = {
         return this
     },
     id: function(value) {
-        this.str += '#' + value
-        return this
+        throw new Error('Not implemented');
     },
 
     class: function(value) {
-        this.str += '.' + value
-        return this
+        throw new Error('Not implemented');
     },
 
     attr: function(value) {
-        this.str += '[' + value + ']'
-        return this
+        throw new Error('Not implemented');
     },
 
     pseudoClass: function(value) {
-        this.str += ':' + value
-        return this
+        throw new Error('Not implemented');
     },
 
     pseudoElement: function(value) {
-        this.str += '::' + value
-        return this
+        throw new Error('Not implemented');
     },
 
     combine: function(selector1, combinator, selector2) {

@@ -205,7 +205,6 @@ function toCsvText(arr) {
    var newarr = []
    var str = ''
    newarr = arr.map(el => el.join(',')+'\n')
-   console.log(newarr)
    str = newarr.reduce((a,b) => a.toString() + b.toString())
    return str.trim()
 }

@@ -32,9 +32,22 @@
  * @return {Iterable.<string>}
  *
  */
-function* get99BottlesOfBeer() {
-    throw new Error('Not implemented');
-}
+    var get99BottlesOfBeer = function (x=99) {
+        let res = []
+        while(x>2) res.push(
+          `${x} bottles of beer on the wall, ${x--} bottles of beer.`,
+          `Take one down and pass it around, ${x} bottles of beer on the wall.`
+        )
+        res.push(
+          '2 bottles of beer on the wall, 2 bottles of beer.',
+          'Take one down and pass it around, 1 bottle of beer on the wall.',
+          '1 bottle of beer on the wall, 1 bottle of beer.',
+          'Take one down and pass it around, no more bottles of beer on the wall.',
+          'No more bottles of beer on the wall, no more bottles of beer.',
+          `Go to the store and buy some more, 99 bottles of beer on the wall.`
+        )
+        return res
+      };
 
 
 /**
@@ -46,9 +59,14 @@ function* get99BottlesOfBeer() {
  * @return {Iterable.<number>}
  *
  */
-function* getFibonacciSequence() {
-    throw new Error('Not implemented');
-}
+function* getFibonacciSequence(n, current = 0, next = 1) {
+        if (n === 0) {
+          return current;
+        }
+        yield current;
+        yield *getFibonacciSequence(n-1, next, current + next);
+      }
+
 
 
 /**

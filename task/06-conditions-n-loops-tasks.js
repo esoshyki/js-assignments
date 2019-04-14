@@ -467,7 +467,6 @@ function toNaryString(num, n) {
 function getCommonDirectoryPath(pathes) {
     var arr = pathes.map(el => el.split('/'))
     var ans = []
-    console.log(arr)
     for (var i=0; i<arr[0].length; i++) {
         var cur = arr[0][i]
         if (arr.every(el => el[i] === cur)) {
@@ -546,7 +545,27 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+
+    var arr = [[ ,  , ,],[ , , ,],[ , , ,]]
+    var lines = [[],[],[]];
+    var columns = [[],[],[]];
+    var dig1 = [];
+    var dig2 = [];
+    for (var i=0;i<3; i++) {
+        dig1.push(position[i][i] || 'Z');
+        dig2.push(position[2-i][i] || 'Z');
+        for (var k=0; k<3; k++) {
+            lines[i].push(position[i][k] || 'Z')
+        }
+        for (var k=0; k<3; k++) {
+            columns[i].push(position[k][i] || 'Z')
+        }
+    }
+    var a = lines.concat(columns).concat([dig1,dig2]).filter(el =>(el[0] !== 'Z' && el[1] !== 'Z' && el[2] !== 'Z')  )
+    var won = a.filter(el => (el[0] === el[1] && el[1] === el[2] && el[0] === el[2]) )[0];
+    if (won) {
+    return won[0]}
+        return won
 }
 
 

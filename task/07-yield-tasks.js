@@ -144,9 +144,8 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
-
 
 module.exports = {
     get99BottlesOfBeer: get99BottlesOfBeer,

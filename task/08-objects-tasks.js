@@ -115,7 +115,7 @@ function fromJSON(proto, json) {
 const cssSelectorBuilder = {
     str: "",
     element: function(value) {
-        this.str += value
+        this.str += ""+value
         return this
     },
     id: function(value) {

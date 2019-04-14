@@ -22,28 +22,7 @@ function Point(abbr, azimuth) {
 }
 
 function createCompassPoints() {
-    let res = new Array(33)
-    var sides = ['N', 'E', 'S', 'W']
-    sides.forEach((val, idx) => res[idx * 8] = val)
-    console.log(res)
-    function rec_travel(start_str, finish_str, start_pos, finish_pos) {
-        let medium_pos = (finish_pos + start_pos) / 2;
-        if (!Number.isInteger(medium_pos))
-            return;
-        let medium_str = start_str + finish_str;
-        if (medium_str.length > 3) {
-            let main_idx = (finish_pos - start_pos > 0 ? Math.ceil : Math.trunc)(medium_pos / 8) % 4;
-            medium_str = start_str + 'b' + sides[main_idx];
-        }
-        if (!res[medium_pos]) {
-            res[medium_pos] = medium_str;
-        }
-        rec_travel(start_str, res[medium_pos], start_pos, medium_pos)
-        rec_travel(finish_str, res[medium_pos], finish_pos, medium_pos)
-    } 
-    rec_travel('N', 'N', 0, 32);
-    return res.map((abbr, idx) => new Point(abbr, 11.25 * idx));   
-}
+    throw new Error('Not implemented');
 
 
 /**
